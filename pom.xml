@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example.plugin</groupId>
+	<artifactId>ExamplePlugin</artifactId>
+	<version>1.0</version>
+	<name>ExamplePlugin</name>
+	<properties>
+		<!-- Define java source and target as Java 8 -->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<build>
+		<!-- We should define resources -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<!-- Used for plugin.yml -->
+					<include>**/*.yml</include>
+					
+					<!-- Used for our asm.yml -->
+					<include>**/*.json</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+	<repositories>
+		<!-- We need spigot, this is still a plugin -->
+		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+
+		<!-- We need the SpigotASM repository too -->
+		<repository>
+			<id>asm</id>
+			<url>https://raw.githubusercontent.com/SpigotASM/Repository/master/</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<!-- We will build for 1.12.2 Servers, but support other versions too -->
+		<dependency>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot-api</artifactId>
+			<version>1.12.2-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- We need ClassTweaker from SpigotASM -->
+		<!-- No need to shade, ClassTweaker will only run if it's on the server -->
+		<dependency>
+			<groupId>org.cyberpwn</groupId>
+			<artifactId>ClassTweaker</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

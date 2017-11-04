@@ -1,0 +1,4 @@
+# Typical maven filtering stuff. Nothing fancy here
+name: ${project.name}
+version: ${project.version}
+main: com.example.plugin.ExamplePlugin
