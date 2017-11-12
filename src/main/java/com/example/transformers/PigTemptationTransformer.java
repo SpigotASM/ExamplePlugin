@@ -13,6 +13,7 @@ import org.objectweb.asm.tree.MethodNode;
 // Implement org.cyberpwn.classtweaker.IClassTransformer
 public class PigTemptationTransformer implements IClassTransformer
 {
+	@Override
 	public byte[] transform(String className, byte[] bytes)
 	{
 		// Let's get the package version
