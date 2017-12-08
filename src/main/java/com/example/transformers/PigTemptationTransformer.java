@@ -29,7 +29,7 @@ public class PigTemptationTransformer implements IClassTransformer
 			String itemsName = "CARROT_ON_A_STICK";
 
 			// Define our replacement (for carrot on a stick) temptation item
-			String itemsReplacementName = "DIAMOND";
+			String itemsReplacementName = "SAND";
 
 			// Begin working with the classnode
 			ClassNode node = new ClassNode();
